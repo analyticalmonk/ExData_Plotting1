@@ -12,12 +12,26 @@ power2$Date <- NULL
 power2$Time <- NULL
 
 #windows()
-png(filename = "plot3.png", width = 480, height = 480, units = "px")
+png(filename = "plot4.png", width = 480, height = 480, units = "px")
+par(mfrow = c(2,2))
 
+#Plot-1
+plot(power2$DateTime, power2$Global_active_power, type = "n", xlab = "", ylab = "Global Active Power")
+lines(power2$DateTime, power2$Global_active_power)
+
+#Plot-2
+plot(power2$DateTime, power2$Voltage, type = "n", xlab = "datetime", ylab = "Voltage")
+lines(power2$DateTime, power2$Voltage)
+
+#Plot-3
 plot(power2$DateTime, power2$Sub_metering_1, type = "n", ylab = "Energy sub metering", xlab = "")
 legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lty = 1)
 lines(power2$DateTime, power2$Sub_metering_1)
 lines(power2$DateTime, power2$Sub_metering_2, col = "red")
 lines(power2$DateTime, power2$Sub_metering_3, col = "blue")
+
+#Plot-4
+plot(power2$DateTime, power2$Global_reactive_power, type = "n", xlab = "datetime", ylab = "Global_reactive_power")
+lines(power2$DateTime, power2$Global_reactive_power)
 
 dev.off()

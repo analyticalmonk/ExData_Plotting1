@@ -12,9 +12,8 @@ power2$Date <- NULL
 power2$Time <- NULL
 
 #windows()
-png(filename = "plot2.png", width = 480, height = 480, units = "px")
+png(filename = "plot1.png", width = 480, height = 480, units = "px")
 
-plot(power2$DateTime, power2$Global_active_power, type = "n", xlab = "", ylab = "Global Active Power (kilowatts)")
-lines(power2$DateTime, power2$Global_active_power)
+hist(power2[, "Global_active_power"], col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)", ylab = "Frequency")
 
 dev.off()
